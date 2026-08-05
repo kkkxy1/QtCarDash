@@ -7,6 +7,7 @@ Item {
     property alias emptyText: t1.text
     property alias fullText: t2.text
     property real value
+    property color fillColor: Style.highlighterGreen
     property real animatedValue: value
     Behavior on animatedValue { NumberAnimation {
         easing.type: Easing.OutQuad;
@@ -30,7 +31,7 @@ Item {
         anchors.rightMargin: 12;
 
         Rectangle {
-            color: Style.highlighterGreen;
+            color: fillColor;
             height: parent.height;
             width: parent.width * animatedValue;
         }
@@ -45,7 +46,7 @@ Item {
         y: 22;
         height: 16;
         font.pixelSize: 12;
-        font.family: "Sarabun";
+        font.family: "Microsoft YaHei UI";
         horizontalAlignment: Text.AlignHCenter;
     }
     Text {
@@ -59,7 +60,7 @@ Item {
         y: 22;
         height: 16;
         font.pixelSize: 12;
-        font.family: "Sarabun";
+        font.family: "Microsoft YaHei UI";
         horizontalAlignment: Text.AlignHCenter;
     }
 }

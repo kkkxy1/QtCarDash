@@ -45,7 +45,7 @@ NormalModeContentItem {
                 text: model.artist
                 font.bold: true
                 font.pixelSize: 16
-                font.family: "Sarabun"
+                font.family: "Microsoft YaHei UI"
                 color: Style.lightPeriwinkle
                 opacity: pos === 0 ? 1 : 0;
                 Behavior on opacity { NumberAnimation{ duration: MediaPlayerModel.changeSongDuration } }
@@ -56,7 +56,7 @@ NormalModeContentItem {
                 y: 96
                 text: model.song;
                 font.pixelSize: 14
-                font.family: "Sarabun"
+                font.family: "Microsoft YaHei UI"
                 color: Style.lightPeriwinkle
                 opacity: artistTxt.opacity
             }
@@ -87,19 +87,19 @@ NormalModeContentItem {
         Text {
             text: (MediaPlayerModel.timePassed / 60).toFixed(0)
             font.pixelSize: 14
-            font.family: "Sarabun"
+            font.family: "Microsoft YaHei UI"
             color: Style.lightPeriwinkle
         }
         Text {
             text: (MediaPlayerModel.timePassed % 60) < 10 ? ":0" : ":"
             font.pixelSize: 14
-            font.family: "Sarabun"
+            font.family: "Microsoft YaHei UI"
             color: Style.lightPeriwinkle
         }
         Text {
             text: (MediaPlayerModel.timePassed % 60).toFixed(0)
             font.pixelSize: 14
-            font.family: "Sarabun"
+            font.family: "Microsoft YaHei UI"
             color: Style.lightPeriwinkle
         }
     }

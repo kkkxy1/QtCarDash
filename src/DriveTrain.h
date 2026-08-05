@@ -93,7 +93,7 @@ private:
     void updateOdo(uint32_t tick);
     void updateRange();
     void updateBattery(uint32_t tick, float acceleration);
-    void updateFuelLevel();
+    void updateFuelLevel(uint32_t tick);
     void updateCoolantTemp(uint32_t tick, float acceleration);
     void shiftGear(int delta);
     void updateModel();

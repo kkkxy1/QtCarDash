@@ -38,6 +38,18 @@ Window {
             anchors.fill: parent;
         }
 
+        Text {
+            anchors.top: parent.top;
+            anchors.right: parent.right;
+            anchors.topMargin: 8;
+            anchors.rightMargin: 12;
+            text: "模拟加速 x" + simulationController.timeScale;
+            color: "#657080";
+            font.pixelSize: 12;
+            font.family: "Microsoft YaHei UI";
+            visible: simulationController.timeScale > 1;
+        }
+
         SimulationController {
             id: simulationController
         }
@@ -49,6 +61,8 @@ Window {
                 MediaPlayerModel.previousSong()
             } else if (key === Qt.Key_Space) {
                 updateSimulationState()
+            } else if (key === Qt.Key_X) {
+                simulationController.toggleSpeedUp()
             }
         }
 

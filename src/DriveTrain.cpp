@@ -45,7 +45,7 @@ void Drivetrain::update(uint32_t tick, float acceleration)
     updateOdo(tick);
     updateRange();
     updateBattery(tick, acceleration);
-    updateFuelLevel();
+    updateFuelLevel(tick);
     updateCoolantTemp(tick, acceleration);
     updateModel();
 }
@@ -132,21 +132,28 @@ void Drivetrain::updateOdo(uint32_t tick)
 
 void Drivetrain::updateRange()
 {
-    // Just flip to max range when hitting 0
-    _data.range = _config.maxRange - (int) _data.odo % (int) _config.maxRange;
+    // 续航由油量决定（在 updateFuelLevel 中同步更新）
+    _data.range = _data.fuel * _config.maxRange;
 }
 
 void Drivetrain::updateBattery(uint32_t tick, float acceleration)
 {
-    float battery = _data.battery;
-    const float ratio = acceleration > 0 ? _config.batteryDrainRatio : _config.batteryFillRatio;
-    battery -= acceleration * tick * ratio;
-    _data.battery = std::min(std::max(battery, 0.f), 1.f);
+    Q_UNUSED(tick)
+    Q_UNUSED(acceleration)
+    // 电池消耗由混动逻辑管理（见 updateFuelLevel）：油尽后按时间消耗
 }
 
-void Drivetrain::updateFuelLevel()
+void Drivetrain::updateFuelLevel(uint32_t tick)
 {
-    _data.fuel = _data.range / _config.maxRange;
+    // 混动策略：先耗油，油尽后耗电
+    // 油量从 3/4 开始，40 分钟耗尽；电量从 3/4 开始，油尽后 30 分钟耗尽
+    if (_data.fuel > 0.f) {
+        _data.fuel = std::max(0.f, _data.fuel - 0.75f * tick / (40.f * 60.f * 1000.f));
+    } else {
+        _data.battery = std::max(0.f, _data.battery - 0.75f * tick / (30.f * 60.f * 1000.f));
+    }
+    // 续航与油量同步下降
+    _data.range = _data.fuel * _config.maxRange;
 }
 
 void Drivetrain::updateCoolantTemp(uint32_t tick, float acceleration)
@@ -167,8 +174,9 @@ void Drivetrain::reset()
     _data.rpm = 0;
     _data.gear = 0;
     _data.coolantTemp = 0;
+    _data.fuel = 0.75f;      // 混动初始：3/4 油
     resetOdo();
-    resetBattery();
+    resetBattery(1.0f);     // 混动初始：3/4 电
 }
 
 void Drivetrain::resetOdo(float value)

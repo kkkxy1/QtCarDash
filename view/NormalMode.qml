@@ -63,7 +63,7 @@ Item {
             text: "x1000\n    RPM"
             color: Style.lightPeriwinkle;
             font.pixelSize: 10
-            font.family: "Sarabun"
+            font.family: "Microsoft YaHei UI"
 
             transform: Scale {
                 origin.x: rightGauge.transformOriginX - rpmLabel.x

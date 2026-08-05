@@ -7,12 +7,12 @@ Item {
     height: 28;
     width: image.width + 15;
 
-    property alias source: image.source;
-    property bool active: false;
-    property color activeColor: Style.highlighterGreen
-    property color inactiveColor: Style.darkBlue;
-    property alias indicatorOpacity: image.opacity;
-    property alias blinking: indicatorBlinkAnimation.running
+    property alias source: image.source; //显示哪张图标
+    property bool active: false;         //亮还是灭
+    property color activeColor: Style.highlighterGreen     //亮时颜色
+    property color inactiveColor: Style.darkBlue;       //灭时颜色
+    property alias indicatorOpacity: image.opacity;     //透明度
+    property alias blinking: indicatorBlinkAnimation.running    //要不要闪
 
     Image {
         id: image;

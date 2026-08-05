@@ -22,13 +22,10 @@ QtObject {
     property real speed: MainModelData.speed
     property real rpm: MainModelData.rpm
     property string gearShiftText: "P"
-    property real temp: 0
+    property real temp: MainModelData.coolantTemp
 
-    readonly property real initialFuelLevel: range / fullRange
-    readonly property real initialBatteryLevel: 0.2
-
-    property real fuelLevel: initialFuelLevel
-    property real batteryLevel: initialBatteryLevel
+    property real fuelLevel: MainModelData.fuelLevel
+    property real batteryLevel: MainModelData.batteryLevel
 
     readonly property int maxSpeed: Units.longDistanceUnitToKilometers(Units.maximumSpeed)
     readonly property int maxRpm: 7000

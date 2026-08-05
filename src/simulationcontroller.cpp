@@ -7,7 +7,13 @@ SimulationController::SimulationController(QObject *parent) : QObject(parent)
 }
 
 void SimulationController::onTimerTimeout() {
-    driveState.onUpdate(500);
+    driveState.onUpdate(500 * m_timeScale);
+}
+
+void SimulationController::toggleSpeedUp()
+{
+    m_timeScale = (m_timeScale == 1) ? 10 : 1;
+    emit timeScaleChanged();
 }
 
 void SimulationController::start()

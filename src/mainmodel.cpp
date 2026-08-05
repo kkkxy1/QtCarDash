@@ -30,6 +30,21 @@ float MainModel::range() const
     return m_range;
 }
 
+float MainModel::coolantTemp() const
+{
+    return m_coolantTemp;
+}
+
+float MainModel::fuelLevel() const
+{
+    return m_fuelLevel;
+}
+
+float MainModel::batteryLevel() const
+{
+    return m_batteryLevel;
+}
+
 void MainModel::setSpeed(float newValue) {
     if (m_speed != newValue) {
         m_speed = newValue;
@@ -58,10 +73,34 @@ void MainModel::setRange(float newValue) {
     }
 }
 
+void MainModel::setCoolantTemp(float newValue) {
+    if (m_coolantTemp != newValue) {
+        m_coolantTemp = newValue;
+        emit coolantTempChanged();
+    }
+}
+
+void MainModel::setFuelLevel(float newValue) {
+    if (m_fuelLevel != newValue) {
+        m_fuelLevel = newValue;
+        emit fuelLevelChanged();
+    }
+}
+
+void MainModel::setBatteryLevel(float newValue) {
+    if (m_batteryLevel != newValue) {
+        m_batteryLevel = newValue;
+        emit batteryLevelChanged();
+    }
+}
+
 void MainModel::update(const Drivetrain::DriveData &data) {
     setRPM(data.rpm);
     setSpeed(data.speed);
     setOdo(data.odo);
     setRange(data.range);
+    setCoolantTemp(data.coolantTemp);
+    setFuelLevel(data.fuel);
+    setBatteryLevel(data.battery);
     emit modelUpdated();
 }

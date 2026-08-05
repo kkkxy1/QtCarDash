@@ -27,7 +27,7 @@ Row {
                 opacity: parent.active ? 1 : 0;
                 Behavior on opacity { NumberAnimation { duration: 600; easing.type: Easing.InCubic } }
                 font.pixelSize: 12;
-                font.family: "Sarabun";
+                font.family: "Microsoft YaHei UI";
                 color: Style.lightPeriwinkle;
             }
         }

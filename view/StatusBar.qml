@@ -14,7 +14,7 @@ Item {
         text: "ODO";
         color: "#657080"
         font.pixelSize: 12;
-        font.family: "Sarabun";
+        font.family: "Microsoft YaHei UI";
     }
 
     Text {
@@ -25,7 +25,7 @@ Item {
         text: Units.toInt(Units.kilometersToLongDistanceUnit(MainModel.odo));
         color: Style.lightPeriwinkle;
         font.pixelSize: 20;
-        font.family: "Sarabun";
+        font.family: "Microsoft YaHei UI";
     }
 
     Text {
@@ -36,7 +36,7 @@ Item {
         text: Units.longDistanceUnit;
         color: "#657080"
         font.pixelSize: 12;
-        font.family: "Sarabun";
+        font.family: "Microsoft YaHei UI";
     }
 
     Text {
@@ -47,7 +47,7 @@ Item {
         text: "RANGE";
         color: "#657080"
         font.pixelSize: 12;
-        font.family: "Sarabun";
+        font.family: "Microsoft YaHei UI";
     }
 
     Text {
@@ -55,10 +55,10 @@ Item {
         anchors.baseline: range.baseline;
         anchors.left: range.right;
         anchors.leftMargin: 4;
-        text: Units.toInt(Units.kilometersToLongDistanceUnit(MainModel.range));
+        text: Units.toInt(Units.kilometersToLongDistanceUnit(MainModel.range))+"/200";
         color: Style.lightPeriwinkle;
         font.pixelSize: 20;
-        font.family: "Sarabun";
+        font.family: "Microsoft YaHei UI";
     }
 
     Text {
@@ -69,7 +69,16 @@ Item {
         text: Units.longDistanceUnit;
         color: "#657080"
         font.pixelSize: 12;
-        font.family: "Sarabun";
+        font.family: "Microsoft YaHei UI";
+    }
+
+    LinearGauge {
+        anchors.bottom: parent.bottom;
+        anchors.bottomMargin: 27;
+        x: 408;
+        emptyText: "C";
+        fullText: "H";
+        value: MainModel.temp / 180;
     }
 
     LinearGauge {
@@ -78,6 +87,7 @@ Item {
         x: 534;
         image: "qrc:/images/status/fuel.png";
         emptyText: "R";
+        fullText: MainModel.fuelLevel.toFixed(2) + "/1";
         value: MainModel.fuelLevel;
     }
 

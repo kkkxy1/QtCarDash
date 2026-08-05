@@ -24,7 +24,7 @@ BaseGauge {
             color: Style.lightPeriwinkle;
             font.pixelSize: 12;
             font.bold: false;
-            font.family: "Sarabun";
+            font.family: "Microsoft YaHei UI";
             opacity: {
                 var distance = Math.abs(animatedValue/interval - index);
                 var alphaResult = 1.5 - (distance / 1.25);
@@ -51,7 +51,7 @@ BaseGauge {
         color: Style.lightPeriwinkle;
         font.pixelSize: 64;
         font.bold: true;
-        font.family: "Sarabun";
+        font.family: "Microsoft YaHei UI";
         transform: [
             Scale {
                 origin.x: transformOriginX - textValue.x
@@ -79,7 +79,7 @@ BaseGauge {
         color: Style.lightPeriwinkle;
         font.pixelSize: 16;
         font.bold: false;
-        font.family: "Sarabun";
+        font.family: "Microsoft YaHei UI";
         transform: Scale {
             origin.x: transformOriginX - label.x
             origin.y: 340 - label.y
