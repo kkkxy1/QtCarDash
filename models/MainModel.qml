@@ -19,8 +19,8 @@ QtObject {
 
     readonly property int fullRange: 895
     property int range: fullRange - odo
-    property real speed: 0
-    property real rpm: 0
+    property real speed: MainModelData.speed
+    property real rpm: MainModelData.rpm
     property string gearShiftText: "P"
     property real temp: 0
 
@@ -53,8 +53,6 @@ QtObject {
 
     function modelUpdated(){
         TellTalesModel.qtLogoOpacity = 0
-        MainModel.speed = MainModelData.speed
-        MainModel.rpm = MainModelData.rpm
         MainModel.odo = MainModelData.odo
         MainModel.range = MainModelData.range
     }

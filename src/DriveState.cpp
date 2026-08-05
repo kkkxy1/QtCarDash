@@ -55,7 +55,7 @@ void DriveState::drive(uint32_t tick) {
     using namespace NormalDriveConstants;
 
     _accChangeTimestamp += tick;
-    float limit = 60;//speedLimits.getCurrentSpeedLimitInKmh();
+    float limit = 30;//speedLimits.getCurrentSpeedLimitInKmh();
 
     if (limit <= 10e-5f) {
         // There is not speed limit, but in normal mode don't go to fast

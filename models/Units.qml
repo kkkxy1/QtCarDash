@@ -8,7 +8,7 @@ QtObject {
     readonly property string fuelUsageUnit: "L/100km"
     readonly property string temperatureSymbol: "°C"
 
-    readonly property int maximumSpeed: 200
+    readonly property int maximumSpeed: 120
 
     function toInt(value: real) : int {
         return value;

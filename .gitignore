@@ -73,3 +73,11 @@ CMakeLists.txt.user*
 *.exe
 
 Debug
+
+# Build output directories
+/build/
+/release/
+/debug/
+/.qtcreator/
+/.qm/
+

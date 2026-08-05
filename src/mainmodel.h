@@ -7,10 +7,10 @@
 class MainModel : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(float speed READ speed CONSTANT)
-    Q_PROPERTY(float rpm READ rpm CONSTANT)
-    Q_PROPERTY(float odo READ odo CONSTANT)
-    Q_PROPERTY(float range READ range CONSTANT)
+    Q_PROPERTY(float speed READ speed NOTIFY speedChanged)
+    Q_PROPERTY(float rpm READ rpm NOTIFY rpmChanged)
+    Q_PROPERTY(float odo READ odo NOTIFY odoChanged)
+    Q_PROPERTY(float range READ range NOTIFY rangeChanged)
 
 public:
     static MainModel* instance();
@@ -26,6 +26,10 @@ public:
 
 signals:
     void modelUpdated();
+    void speedChanged();
+    void rpmChanged();
+    void odoChanged();
+    void rangeChanged();
 
 private:
     explicit MainModel(QObject* parent = nullptr);
