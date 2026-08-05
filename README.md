@@ -44,11 +44,18 @@ C++ 负责数据与逻辑，QML 负责渲染，中间通过带 Qt 属性信号�
 **依赖**：Qt 6.x（MinGW 64-bit）、Qt Creator、CMake、Ninja。
 
 方式 A — Qt Creator：
-1. 打开 `QtInstrumentCluster.pro`
+1. 打开 `CMakeLists.txt`（或 `QtInstrumentCluster.pro`）
 2. 使用 `Desktop Qt 6.x MinGW 64-bit` 套件配置（Release）
 3. 点击运行
 
-方式 B — 命令行：
+方式 B — CMake 命令行：
+```
+cmake -S . -B build -G Ninja -DCMAKE_PREFIX_PATH=D:/Qt/6.x.x/mingw_64
+cmake --build build
+./build/QtInstrumentCluster.exe
+```
+
+方式 C — qmake 命令行（传统方式）：
 ```
 D:/Qt/6.x.x/mingw_64/bin/qmake.exe QtInstrumentCluster.pro
 D:/Qt/Tools/mingw*/bin/mingw32-make.exe

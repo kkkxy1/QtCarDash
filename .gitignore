@@ -76,6 +76,7 @@ Debug
 
 # Build output directories
 /build/
+/build-cmake/
 /release/
 /debug/
 /.qtcreator/
