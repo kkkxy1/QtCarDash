@@ -17,6 +17,7 @@
         <file>models/TellTalesModel.qml</file>
         <file>images/status/battery.png</file>
         <file>images/status/fuel.png</file>
+        <file>images/status/temp.png</file>
         <file>models/MainModel.qml</file>
         <file>models/Style.qml</file>
         <file>models/Units.qml</file>

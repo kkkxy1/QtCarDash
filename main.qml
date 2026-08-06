@@ -4,6 +4,7 @@ import QtQuick.Window 2.12
 import MainModel 1.0
 import SimulationController 1.0
 import MediaPlayerModel 1.0
+import NormalModeModel 1.0
 import "view" as View
 
 Window {
@@ -63,6 +64,10 @@ Window {
                 updateSimulationState()
             } else if (key === Qt.Key_X) {
                 simulationController.toggleSpeedUp()
+            } else if(key === Qt.Key_A){
+                NormalModeModel.previousMenu();
+            } else if(key === Qt.Key_D){
+                 NormalModeModel.nextMenu();
             }
         }
 

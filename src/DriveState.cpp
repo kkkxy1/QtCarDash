@@ -54,6 +54,12 @@ void DriveState::drive(uint32_t tick) {
 
     using namespace NormalDriveConstants;
 
+    if (drivetrain.getDriveData().fuel <= 0.f) {
+        _targetAcc = AccMin;
+        updateDrivetrain(tick, _targetAcc);
+        return;
+    }
+
     _accChangeTimestamp += tick;
     float limit = 30;//speedLimits.getCurrentSpeedLimitInKmh();
 

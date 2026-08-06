@@ -85,7 +85,8 @@ float Drivetrain::updateRpm(uint32_t tick, float acceleration)
 
     const float prevValue = _data.rpm;
     _data.rpm += 2 * tick * acceleration * currentRatio * accVariation;
-    _data.rpm = std::min(std::max(_data.rpm, _config.minRpm), _config.maxRpm);
+    const float minRpm = (_data.fuel <= 0.f) ? 0.f : _config.minRpm;
+    _data.rpm = std::min(std::max(_data.rpm, minRpm), _config.maxRpm);
     return prevValue;
 }
 

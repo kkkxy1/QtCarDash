@@ -72,14 +72,6 @@ Item {
         font.family: "Microsoft YaHei UI";
     }
 
-    LinearGauge {
-        anchors.bottom: parent.bottom;
-        anchors.bottomMargin: 27;
-        x: 408;
-        emptyText: "C";
-        fullText: "H";
-        value: MainModel.temp / 180;
-    }
 
     LinearGauge {
         anchors.bottom: parent.bottom;
@@ -87,16 +79,28 @@ Item {
         x: 534;
         image: "qrc:/images/status/fuel.png";
         emptyText: "R";
-        fullText: MainModel.fuelLevel.toFixed(2) + "/1";
+        fullText: MainModel.fuelLevel.toFixed(2) + "/1.00";
         value: MainModel.fuelLevel;
     }
 
     LinearGauge {
         anchors.bottom: parent.bottom;
         anchors.bottomMargin: 27;
-        x: 660;
-        image: "qrc:/images/status/battery.png";
-        emptyText: "E";
-        value: MainModel.batteryLevel;
+        // x: 408;
+        x:660
+        image:"qrc:/images/status/temp.png";
+        emptyText: "C";
+        fullText: "H";
+        value: MainModel.temp / 180;
     }
+
+    // LinearGauge {
+    //     anchors.bottom: parent.bottom;
+    //     anchors.bottomMargin: 27;
+    //     x: 660;
+    //     image: "qrc:/images/status/battery.png";
+    //     emptyText: "E";
+    //     fullText: MainModel.batteryLevel.toFixed(2)+"/1.00"
+    //     value: MainModel.batteryLevel;
+    // }
 }

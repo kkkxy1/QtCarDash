@@ -19,13 +19,15 @@ Row {
             Image {
                 source: model.image;
                 anchors.horizontalCenter: parent.horizontalCenter;
+                opacity: parent.active ? 1.0 : 0.15;
+                Behavior on opacity { NumberAnimation { duration: 300; } }
             }
             Text {
                 text: model.text;
                 anchors.bottom: parent.bottom;
                 anchors.horizontalCenter: parent.horizontalCenter;
                 opacity: parent.active ? 1 : 0;
-                Behavior on opacity { NumberAnimation { duration: 600; easing.type: Easing.InCubic } }
+                Behavior on opacity { NumberAnimation { duration: 400; easing.type: Easing.InCubic } }
                 font.pixelSize: 12;
                 font.family: "Microsoft YaHei UI";
                 color: Style.lightPeriwinkle;

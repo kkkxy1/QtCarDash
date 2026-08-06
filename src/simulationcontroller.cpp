@@ -12,7 +12,7 @@ void SimulationController::onTimerTimeout() {
 
 void SimulationController::toggleSpeedUp()
 {
-    m_timeScale = (m_timeScale == 1) ? 10 : 1;
+    m_timeScale = (m_timeScale == 1) ? 20 : 1;
     emit timeScaleChanged();
 }
 
