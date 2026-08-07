@@ -45,6 +45,11 @@ float MainModel::batteryLevel() const
     return m_batteryLevel;
 }
 
+int MainModel::simulationTime() const
+{
+    return m_simulationTime;
+}
+
 void MainModel::setSpeed(float newValue) {
     if (m_speed != newValue) {
         m_speed = newValue;
@@ -91,6 +96,14 @@ void MainModel::setBatteryLevel(float newValue) {
     if (m_batteryLevel != newValue) {
         m_batteryLevel = newValue;
         emit batteryLevelChanged();
+    }
+}
+
+void MainModel::setSimulationTime(int newValue)
+{
+    if(m_simulationTime!=newValue){
+        m_simulationTime=newValue;
+        emit simulationTimeChanged();
     }
 }
 

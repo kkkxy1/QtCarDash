@@ -11,13 +11,15 @@ Item {
     property bool active: false;         //亮还是灭
     property color activeColor: Style.highlighterGreen     //亮时颜色
     property color inactiveColor: Style.darkBlue;       //灭时颜色
-    property alias indicatorOpacity: image.opacity;     //透明度
-    property alias blinking: indicatorBlinkAnimation.running    //要不要闪
+    property real indicatorOpacity:1;   //透明度
+    property bool blinking: false;   //要不要闪
+    property bool blinkVisible:false;
 
     Image {
         id: image;
         anchors.horizontalCenter: parent.horizontalCenter;
         anchors.verticalCenter: parent.verticalCenter;
+        opacity: active && (!blinking || blinkVisible) ? indicatorOpacity : 0;
 
         Behavior on opacity { NumberAnimation {
             easing.type: Easing.InOutQuad;
@@ -25,25 +27,25 @@ Item {
         }}
     }
 
-    SequentialAnimation {
-        id: indicatorBlinkAnimation
-        loops: Animation.Infinite
-        alwaysRunToEnd: true
+    // SequentialAnimation {
+    //     id: indicatorBlinkAnimation
+    //     loops: Animation.Infinite
+    //     alwaysRunToEnd: true
 
-        ScriptAction {
-            script: indicator.active = true;
-        }
+    //     ScriptAction {
+    //         script: indicator.active = true;
+    //     }
 
-        PauseAnimation {
-            duration: 400
-        }
+    //     PauseAnimation {
+    //         duration: 600
+    //     }
 
-        ScriptAction {
-            script: indicator.active = false;
-        }
+    //     ScriptAction {
+    //         script: indicator.active = false;
+    //     }
 
-        PauseAnimation {
-            duration: 300
-        }
-    }
+    //     PauseAnimation {
+    //         duration: 400
+    //     }
+    // }
 }

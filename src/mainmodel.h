@@ -14,6 +14,7 @@ class MainModel : public QObject
     Q_PROPERTY(float coolantTemp READ coolantTemp NOTIFY coolantTempChanged)
     Q_PROPERTY(float fuelLevel READ fuelLevel NOTIFY fuelLevelChanged)
     Q_PROPERTY(float batteryLevel READ batteryLevel NOTIFY batteryLevelChanged)
+    Q_PROPERTY(int simulationTime READ simulationTime NOTIFY simulationTimeChanged)
 
 public:
     static MainModel* instance();
@@ -24,6 +25,8 @@ public:
     float coolantTemp() const;
     float fuelLevel() const;
     float batteryLevel() const;
+    int simulationTime() const;
+    void setSimulationTime(int newValue);
     void setSpeed(float newValue);
     void setRPM(float newValue);
     void setOdo(float newValue);
@@ -42,6 +45,7 @@ signals:
     void coolantTempChanged();
     void fuelLevelChanged();
     void batteryLevelChanged();
+    void simulationTimeChanged();
 
 private:
     explicit MainModel(QObject* parent = nullptr);
@@ -52,6 +56,7 @@ private:
     float m_coolantTemp;
     float m_fuelLevel;
     float m_batteryLevel;
+    int m_simulationTime = 0;
 };
 
 #endif // MAINMODEL_H

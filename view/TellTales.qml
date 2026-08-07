@@ -12,6 +12,7 @@ Row {
         active: TellTalesModel.turnLeftActive;
         indicatorOpacity: TellTalesModel.indicatorOpacity;
         blinking: TellTalesModel.turnLeftBlinking;
+        blinkVisible:TellTalesModel.turnLeftVisible;
     }
     TellTalesIndicator
     {
@@ -55,5 +56,6 @@ Row {
         active: TellTalesModel.turnRightActive;
         indicatorOpacity: TellTalesModel.indicatorOpacity;
         blinking: TellTalesModel.turnRightBlinking;
+        blinkVisible: TellTalesModel.turnRightVisible;
     }
 }

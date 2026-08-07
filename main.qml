@@ -5,6 +5,7 @@ import MainModel 1.0
 import SimulationController 1.0
 import MediaPlayerModel 1.0
 import NormalModeModel 1.0
+import TellTalesModel 1.0
 import "view" as View
 
 Window {
@@ -55,6 +56,22 @@ Window {
             id: simulationController
         }
 
+        Timer{
+            id:blinkTimer
+            interval: 500
+            repeat: true
+            running:TellTalesModel.turnLeftBlinking||TellTalesModel.turnRightBlinking
+
+            onTriggered: {
+                if(TellTalesModel.turnLeftBlinking){
+                    TellTalesModel.turnLeftVisible=!TellTalesModel.turnLeftVisible;
+                }
+                if(TellTalesModel.turnRightBlinking){
+                    TellTalesModel.turnRightVisible=!TellTalesModel.turnRightVisible;
+                }
+            }
+        }
+
         function onKeyPressed(key : int) {
             if (key === Qt.Key_Right) {
                 MediaPlayerModel.nextSong()
@@ -68,8 +85,14 @@ Window {
                 NormalModeModel.previousMenu();
             } else if(key === Qt.Key_D){
                  NormalModeModel.nextMenu();
+            } else if(key === Qt.Key_Q){
+                TellTalesModel.toggleLeftTurn();
+            } else if(key === Qt.Key_E){
+                TellTalesModel.toggleRightTurn();
             }
         }
+
+
 
         function updateSimulationState() {
             if(MainModel.simulationRunning) {

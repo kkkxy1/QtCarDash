@@ -72,6 +72,25 @@ Item {
         font.family: "Microsoft YaHei UI";
     }
 
+    Text {
+        id:runTimeLabel
+        anchors.horizontalCenter: parent.horizontalCenter;
+        anchors.bottom: parent.bottom;
+        anchors.bottomMargin: 27;
+        text: formatDuration(MainModel.simulationTime);
+        color:Style.lightPeriwinkle;
+        font.pixelSize: 12;
+        font.family: "Microsoft YaHei UI";
+    }
+
+    function formatDuration(ms){
+        var totalSec=Math.floor(ms / 1000);
+        var h=Math.floor(totalSec / 3600);
+        var m=Math.floor((totalSec % 3600)/60);
+        var s=totalSec % 60;
+        return (h < 10 ? "0" : "") + h + ":" + (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+    }
+
 
     LinearGauge {
         anchors.bottom: parent.bottom;
@@ -93,6 +112,8 @@ Item {
         fullText: "H";
         value: MainModel.temp / 180;
     }
+
+
 
     // LinearGauge {
     //     anchors.bottom: parent.bottom;

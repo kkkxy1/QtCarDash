@@ -1,4 +1,5 @@
 #include "simulationcontroller.h"
+#include "mainmodel.h"
 
 SimulationController::SimulationController(QObject *parent) : QObject(parent)
 {
@@ -8,6 +9,7 @@ SimulationController::SimulationController(QObject *parent) : QObject(parent)
 
 void SimulationController::onTimerTimeout() {
     driveState.onUpdate(500 * m_timeScale);
+    MainModel::instance()->setSimulationTime(driveState.getStateTime());
 }
 
 void SimulationController::toggleSpeedUp()

@@ -26,6 +26,7 @@ QtObject {
 
     property real fuelLevel: MainModelData.fuelLevel
     property real batteryLevel: MainModelData.batteryLevel
+    property int  simulationTime:MainModelData.simulationTime
 
     readonly property int maxSpeed: Units.longDistanceUnitToKilometers(Units.maximumSpeed)
     readonly property int maxRpm: 7000

@@ -6,7 +6,10 @@
         <file>images/gauges/highlight-normal.png</file>
         <file>images/gauges/needle-normal.png</file>
         <file>images/bg-mask.png</file>
-        <file>images/car-highlights.png</file>
+        <file>images/lights/car-highlights.png</file>
+        <file>images/lights/car-turnleft.png</file>
+        <file>images/lights/car-turnright.png</file>
+        <file>images/lights/car-brake.png</file>
         <file>images/telltales/airbag.png</file>
         <file>images/telltales/beam.png</file>
         <file>images/telltales/high-beams.png</file>
