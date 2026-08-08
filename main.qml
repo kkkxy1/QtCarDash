@@ -93,6 +93,10 @@ Window {
                 simulationController.accelerate();
             } else if(key ===Qt.Key_S){
                 simulationController.decelerate();
+            } else if(key === Qt.Key_F){
+                TellTalesModel.beamActive =! TellTalesModel.beamActive;
+            } else if(key === Qt.Key_H){
+                TellTalesModel.highBeamsActive =! TellTalesModel.highBeamsActive;
             }
         }
 
