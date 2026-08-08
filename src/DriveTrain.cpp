@@ -23,6 +23,7 @@
 #include <algorithm>
 #include <cmath>
 #include "mainmodel.h"
+// #include <cstdlib>
 
 namespace {
 const float cmPerMinuteToKmhRatio = 0.0006;
@@ -35,6 +36,15 @@ Drivetrain::Drivetrain(QObject *parent)
     assert(_config.gearNum <= Config::MAX_GEARS);
     reset();
 }
+
+// void Drivetrain::clampSpeed(float maxSpeed)
+// {
+//     if(_data.speed>maxSpeed){
+//         _data.speed=maxSpeed;
+//         _data.rpm=getRpm(_data.speed,_data.gear);
+//         updateModel();
+//     }
+// }
 
 void Drivetrain::update(uint32_t tick, float acceleration)
 {
@@ -68,7 +78,7 @@ void Drivetrain::udpateCruiseControll(uint32_t tick, float targetSpeed)
         const int dir = targetSpeed - _data.speed > 0 ? 1 : -1;
         const float speedFactor = std::abs(targetSpeed - _data.speed) / _config.maxSpeed;
         if (dir > 0) {
-            acceleration = 0.05f + std::sqrt(std::min(std::max(speedFactor * 2, 0.f), 1.f)) * 0.95f;
+            acceleration = 0.1f + std::sqrt(std::min(std::max(speedFactor * 2, 0.f), 1.f)) * 1.5f;
         } else {
             acceleration = -(0.05f + std::min(std::max(speedFactor * 4, 0.f), 1.f) * 0.95f);
         }

@@ -76,6 +76,7 @@ public:
     void reset();
     void resetOdo(float value = 0);
     void resetBattery(float value = 0);
+    void clampSpeed(float maxSpeed);
 
     float getSpeed(float rpm, int gear) const;
     float getRpm(float speed, int gear) const;

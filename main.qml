@@ -89,6 +89,10 @@ Window {
                 TellTalesModel.toggleLeftTurn();
             } else if(key === Qt.Key_E){
                 TellTalesModel.toggleRightTurn();
+            } else if(key === Qt.Key_W){
+                simulationController.accelerate();
+            } else if(key ===Qt.Key_S){
+                simulationController.decelerate();
             }
         }
 

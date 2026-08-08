@@ -12,13 +12,13 @@ const float AcceChangeFilteringFactor = 0.15f;
 
 namespace NormalDriveConstants {
 const uint16_t AccChangeRandomizePeriod = 3000;
-const float AccChangeMin = -0.1f;
-const float AccChangeMax = 1.0f;
+const float AccChangeMin = -0.5f;
+const float AccChangeMax = 0.5f;
 const float AccMin = -0.3f;
 const float AccMax = 0.4f;
 const float AccChangeSpeedFactor = 10000.f;
 const uint8_t DefaultSpeedLimit = 160;
-const uint8_t ExcessiveSpeedingThreshold = 50;
+const uint8_t ExcessiveSpeedingThreshold = 0;
 const float ExcessiveSpeedingBraking = -0.5f;
 const uint8_t LightSpeedingThreshold = 15;
 const float LightSpeedingBraking = -0.2f;
@@ -48,6 +48,7 @@ void DriveState::onUpdate(uint32_t tick)
     } else {
         updateDrivetrain(tick, _acceleration);
     }
+    // drivetrain.clampSpeed(30.0f);
 }
 
 void DriveState::drive(uint32_t tick) {
