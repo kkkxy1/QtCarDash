@@ -119,6 +119,7 @@ private:
         200.f        // float maxRange;
     };
     uint32_t _constSpeedTime;
+    uint32_t _cruiseTime=0;
 
 };
 

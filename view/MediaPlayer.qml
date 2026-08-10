@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import Style 1.0
 import MediaPlayerModel 1.0
+import MainModel 1.0
 
 NormalModeContentItem {
     Repeater {
@@ -76,6 +77,7 @@ NormalModeContentItem {
                 source: model.cover
             }
             z: img.opacity > 0.90 ? 1 : -Math.abs(pos);
+
         }
     }
 

@@ -74,6 +74,7 @@ void Drivetrain::udpateCruiseControll(uint32_t tick, float targetSpeed)
     targetSpeed = std::min(targetSpeed, maxSpeed);
 
     float acceleration = 0;
+    const bool atTarget = ((int)targetSpeed == (int)_data.speed);
     if ((int) targetSpeed != (int) _data.speed) {
         const int dir = targetSpeed - _data.speed > 0 ? 1 : -1;
         const float speedFactor = std::abs(targetSpeed - _data.speed) / _config.maxSpeed;
@@ -82,8 +83,19 @@ void Drivetrain::udpateCruiseControll(uint32_t tick, float targetSpeed)
         } else {
             acceleration = -(0.05f + std::min(std::max(speedFactor * 4, 0.f), 1.f) * 0.95f);
         }
+        _cruiseTime=0;
     }
     update(tick, acceleration);
+
+    if(atTarget && targetSpeed >0){
+        _cruiseTime+=tick;
+        float wave1 = sinf(static_cast<float>(_cruiseTime) * 0.003f);
+        float wave2 = sinf(static_cast<float>(_cruiseTime) * 0.007f + 1.3f);
+        float speedOffset = (wave1 * 0.7f + wave2 * 0.3f) * 2.0f;
+        _data.speed = std::max(0.f, targetSpeed + speedOffset);
+        _data.rpm = getRpm(_data.speed, _data.gear);
+        updateModel();
+    }
 }
 
 float Drivetrain::updateRpm(uint32_t tick, float acceleration)

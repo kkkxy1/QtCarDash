@@ -97,6 +97,44 @@ Window {
                 TellTalesModel.beamActive =! TellTalesModel.beamActive;
             } else if(key === Qt.Key_H){
                 TellTalesModel.highBeamsActive =! TellTalesModel.highBeamsActive;
+            } else if(key === Qt.Key_P){
+                if(MediaPlayerModel.mediaPlayback){
+                    MediaPlayerModel.stop();
+                }else{
+                    MediaPlayerModel.play();
+                }
+            } else if(key === Qt.Key_Up){
+                if(NormalModeModel.menu == NormalModeModel.CarStatusMenu){
+                    if(NormalModeModel.setupIndex == -1){
+                        NormalModeModel.setupSelect=NormalModeModel.setupSelect == 0 ? 4 : NormalModeModel.setupSelect-1;
+                    }else if(NormalModeModel.setupIndex == 3){
+                        MediaPlayerModel.volume=Math.min(MediaPlayerModel.volume+1,20);
+                    }else if(NormalModeModel.setupIndex == 4){
+                        NormalModeModel.brightness=Math.min(NormalModeModel.brightness+1,20);
+                    }
+                }
+            } else if(key === Qt.Key_Down){
+                if(NormalModeModel.menu == NormalModeModel.CarStatusMenu){
+                    if(NormalModeModel.setupIndex == -1){
+                         NormalModeModel.setupSelect=NormalModeModel.setupSelect == 4 ? 0 : NormalModeModel.setupSelect+1;
+                    }else if(NormalModeModel.setupIndex == 3){
+                        MediaPlayerModel.volume=Math.max(MediaPlayerModel.volume-1,0);
+                    }else if(NormalModeModel.setupIndex == 4){
+                        NormalModeModel.brightness=Math.max(NormalModeModel.brightness-1,0);
+                    }
+                }
+            } else if(key === Qt.Key_Enter||key === Qt.Key_Return){
+                if(NormalModeModel.menu==NormalModeModel.CarStatusMenu){
+                    if(NormalModeModel.setupIndex == -1){
+                        NormalModeModel.setupIndex=NormalModeModel.setupSelect;
+                    }
+                }
+            } else if(key === Qt.Key_Escape){
+                if(NormalModeModel.menu ==NormalModeModel.CarStatusMenu){
+                    if(NormalModeModel.setupIndex != -1){
+                        NormalModeModel.setupIndex=-1;
+                    }
+                }
             }
         }
 

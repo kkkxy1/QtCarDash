@@ -1,6 +1,6 @@
 import QtQuick 2.12
 import Style 1.0
-
+import MediaPlayerModel 1.0
 Row {
     signal clicked(int index);
     property int currentIndex;
@@ -17,13 +17,13 @@ Row {
             height: 38;
             property bool active: index == currentIndex;
             Image {
-                source: model.image;
+                source:index === 0 ?(MediaPlayerModel.mediaPlayback ? "qrc:/images/menu/play.png" : "qrc:/images/menu/pause.png"):model.image;
                 anchors.horizontalCenter: parent.horizontalCenter;
                 opacity: parent.active ? 1.0 : 0.15;
                 Behavior on opacity { NumberAnimation { duration: 300; } }
             }
             Text {
-                text: model.text;
+                text: index === 0 ?(MediaPlayerModel.mediaPlayback ? "Play" : "Pause"):model.text;
                 anchors.bottom: parent.bottom;
                 anchors.horizontalCenter: parent.horizontalCenter;
                 opacity: parent.active ? 1 : 0;

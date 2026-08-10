@@ -5,6 +5,8 @@ import MainModel 1.0
 QtObject {
     id: mediaplayermodel
     property bool mediaPlayback: true
+    property int volume:10
+
 
     function play() {
         mediaplayermodel.mediaPlayback = true

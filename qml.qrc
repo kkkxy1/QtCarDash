@@ -32,7 +32,10 @@
         <file>images/menu/navi.png</file>
         <file>images/menu/phone.png</file>
         <file>images/menu/play.png</file>
+        <file>images/menu/pause.png</file>
         <file>images/menu/setup.png</file>
+        <file>images/menu/navigation.png</file>
+        <file>images/menu/phone-call.png</file>
         <file>models/NormalModeModel.qml</file>
         <file>images/albums/ak.png</file>
         <file>images/albums/juno.png</file>
