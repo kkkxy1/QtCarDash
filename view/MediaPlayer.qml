@@ -9,29 +9,30 @@ NormalModeContentItem {
             // FIXME: https://bugreports.qt.io/browse/UL-597
             // Durations are used in MediaPlayerModel.qml
             ListElement {
-                artist: "Thomas Lammer";
-                song: "Setsuna";
-                cover: "qrc:/images/albums/juno.png";
+
+                artist: "周杰伦";
+                song: "半岛铁盒";
+                cover: "qrc:/images/albums/cover1.png";
             }
             ListElement {
-                artist: "Thievery Corporation";
-                song: "Le Monde";
-                cover: "qrc:/images/albums/thievery-corp.png";
+                artist: "周杰伦";
+                song: "园游会";
+                cover: "qrc:/images/albums/cover2.png";
             }
             ListElement {
-                artist: "Tycho";
-                song: "Aweke";
-                cover: "qrc:/images/albums/tycho.png";
+                artist: "周杰伦";
+                song: "美人鱼";
+                cover: "qrc:/images/albums/cover3.png";
             }
             ListElement {
-                artist: "De Phazz";
-                song: "Chocolate";
-                cover: "qrc:/images/albums/phazz.png";
+                artist: "周杰伦";
+                song: "我不配";
+                cover: "qrc:/images/albums/cover4.png";
             }
             ListElement {
-                artist: "AK";
-                song: "Discovery";
-                cover: "qrc:/images/albums/ak.png";
+                artist: "周杰伦";
+                song: "大笨钟";
+                cover: "qrc:/images/albums/cover5.png";
             }
         }
 
@@ -40,10 +41,10 @@ NormalModeContentItem {
             property int pos: -(-(10 + index - MediaPlayerModel.track%5 + 2) % 5) - 2
 
             Text {
-                id: artistTxt
+                id: songTxt
                 anchors.horizontalCenter: parent.horizontalCenter;
                 y: 77
-                text: model.artist
+                text: model.song
                 font.bold: true
                 font.pixelSize: 16
                 font.family: "Microsoft YaHei UI"
@@ -52,11 +53,11 @@ NormalModeContentItem {
                 Behavior on opacity { NumberAnimation{ duration: MediaPlayerModel.changeSongDuration } }
             }
             Text {
-                id: songTxt
+                id:artistTxt
                 anchors.horizontalCenter: parent.horizontalCenter;
                 y: 96
-                text: model.song;
-                font.pixelSize: 14
+                text: model.artist;
+                font.pixelSize: 12
                 font.family: "Microsoft YaHei UI"
                 color: Style.lightPeriwinkle
                 opacity: artistTxt.opacity
@@ -83,7 +84,7 @@ NormalModeContentItem {
 
     Row {
         anchors.horizontalCenter: parent.horizontalCenter;
-        y: 262
+        y: 270
         id: durationLabel
         visible: true
         Text {
@@ -128,4 +129,5 @@ NormalModeContentItem {
             to: 1.0
         }
     }
+
 }

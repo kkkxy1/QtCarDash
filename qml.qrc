@@ -37,11 +37,11 @@
         <file>images/menu/navigation.png</file>
         <file>images/menu/phone-call.png</file>
         <file>models/NormalModeModel.qml</file>
-        <file>images/albums/ak.png</file>
-        <file>images/albums/juno.png</file>
-        <file>images/albums/phazz.png</file>
-        <file>images/albums/thievery-corp.png</file>
-        <file>images/albums/tycho.png</file>
+        <file>images/albums/cover1.png</file>
+        <file>images/albums/cover2.png</file>
+        <file>images/albums/cover3.png</file>
+        <file>images/albums/cover4.png</file>
+        <file>images/albums/cover5.png</file>
         <file>models/MediaPlayerModel.qml</file>
         <file>view/BaseGauge.qml</file>
         <file>view/Car.qml</file>
@@ -56,5 +56,10 @@
         <file>view/StatusBar.qml</file>
         <file>view/TellTales.qml</file>
         <file>view/TellTalesIndicator.qml</file>
+        <file>audio/cover1.mp3</file>
+        <file>audio/cover2.mp3</file>
+        <file>audio/cover3.mp3</file>
+        <file>audio/cover4.mp3</file>
+        <file>audio/cover5.mp3</file>
     </qresource>
 </RCC>

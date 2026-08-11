@@ -224,7 +224,7 @@ Item {
                     }
                     Text {
                         text: MainModel.range + " km";
-                        font.pixelSize: 14;
+                        font.pixelSize: 14
                         font.family: "Microsoft YaHei UI";
                         color: Style.highlighterGreen;
                     }

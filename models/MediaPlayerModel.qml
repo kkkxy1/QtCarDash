@@ -1,6 +1,7 @@
 pragma Singleton
 import QtQuick 2.15
 import MainModel 1.0
+import QtMultimedia
 
 QtObject {
     id: mediaplayermodel
@@ -19,6 +20,17 @@ QtObject {
     }
     function previousSong() {
         track = (track+trackCount-1)%trackCount
+    }
+
+    function getCurrentAudio(){
+        var audios=[
+                "qrc:/audio/cover1.mp3",
+                "qrc:/audio/cover2.mp3",
+                "qrc:/audio/cover3.mp3",
+                "qrc:/audio/cover4.mp3",
+                "qrc:/audio/cover5.mp3"
+            ];
+        return audios[track];
     }
 
     property int track: 0
