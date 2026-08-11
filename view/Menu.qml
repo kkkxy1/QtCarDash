@@ -17,13 +17,13 @@ Row {
             height: 38;
             property bool active: index == currentIndex;
             Image {
-                source:index === 0 ?(MediaPlayerModel.mediaPlayback ? "qrc:/images/menu/play.png" : "qrc:/images/menu/pause.png"):model.image;
+                source:index === 0 ?(MediaPlayerModel.mediaPlayback ? "qrc:/images/menu/pause.png" : "qrc:/images/menu/play.png"):model.image;
                 anchors.horizontalCenter: parent.horizontalCenter;
                 opacity: parent.active ? 1.0 : 0.15;
                 Behavior on opacity { NumberAnimation { duration: 300; } }
             }
             Text {
-                text: index === 0 ?(MediaPlayerModel.mediaPlayback ? "Play" : "Pause"):model.text;
+                text: index === 0 ?(MediaPlayerModel.mediaPlayback ? "Pause" : "Play"):model.text;
                 anchors.bottom: parent.bottom;
                 anchors.horizontalCenter: parent.horizontalCenter;
                 opacity: parent.active ? 1 : 0;

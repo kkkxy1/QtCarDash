@@ -5,7 +5,7 @@ import QtMultimedia
 
 QtObject {
     id: mediaplayermodel
-    property bool mediaPlayback: true
+    property bool mediaPlayback: false
     property int volume:10
 
 
@@ -33,6 +33,7 @@ QtObject {
         return audios[track];
     }
 
+
     property int track: 0
     property int timePassed: 0 // sec
     readonly property int trackCount: 5
@@ -57,7 +58,7 @@ QtObject {
     }
 
     property Timer timePassedTimer: Timer {
-        running: MainModel.simulationRunning
+        running: MainModel.simulationRunning && MediaPlayerModel.mediaPlayback
         repeat: true
         interval: 1000
         onTriggered: { timePassed += 1 }

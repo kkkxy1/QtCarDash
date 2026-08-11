@@ -2,6 +2,7 @@ import QtQuick 2.12
 import Style 1.0
 import MediaPlayerModel 1.0
 import MainModel 1.0
+import QtMultimedia
 
 NormalModeContentItem {
     Repeater {
@@ -127,6 +128,30 @@ NormalModeContentItem {
             duration: 400
             from: 0.0
             to: 1.0
+        }
+    }
+
+    MediaPlayer {
+        id: audioPlayer
+        source:MediaPlayerModel.getCurrentAudio();
+        autoPlay:MediaPlayerModel.mediaPlayback
+        audioOutput: AudioOutput { }
+    }
+
+    Connections {
+        target: MediaPlayerModel
+
+        onTrackChanged:{
+            audioPlayer.source=MediaPlayerModel.getCurrentAudio();
+            audioPlayer.play();
+        }
+
+        onMediaPlaybackChanged: {
+            if(MediaPlayerModel.mediaPlayback){
+                audioPlayer.play();
+            }else{
+                audioPlayer.pause();
+            }
         }
     }
 

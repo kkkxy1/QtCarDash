@@ -10,6 +10,7 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 find_package(Qt6 6.2 REQUIRED COMPONENTS Quick Gui LinguistTools)
+find_package(Qt6 6.2 REQUIRED COMPONENTS Quick Gui LinguistTools Multimedia)
 
 qt_standard_project_setup()
 
@@ -24,6 +25,7 @@ qt_add_executable(QtInstrumentCluster WIN32
 
 target_include_directories(QtInstrumentCluster PRIVATE src)
 target_link_libraries(QtInstrumentCluster PRIVATE Qt6::Quick)
+target_link_libraries(QtInstrumentCluster PRIVATE Qt6::Quick Qt6::Multimedia)
 
 # Headers are listed for IDE navigation and AUTOMOC scanning
 target_sources(QtInstrumentCluster PRIVATE
